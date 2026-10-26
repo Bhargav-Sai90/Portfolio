@@ -1,2 +1,2 @@
 import { defineConfig } from 'vite';
-export default defineConfig({ root: 'src', publicDir: '../public', build: { outDir: '../dist', emptyOutDir: true } });
+export default defineConfig({ base: './', root: 'src', publicDir: '../public', build: { outDir: '../dist', emptyOutDir: true } });
