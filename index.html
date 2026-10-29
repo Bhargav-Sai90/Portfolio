@@ -17,8 +17,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet" />
-  <script type="module" crossorigin src="./assets/index-DIWrxjO3.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-C4xC43kd.css">
+  <script type="module" crossorigin src="./assets/index-CSLFwbYM.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-eHYb-hks.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
   </div>
   <nav class="journey-nav" aria-label="Journey chapters"><a href="#home" class="active"
       aria-label="Home"><span>00</span><i></i></a><a href="#about" aria-label="The creator"><span>01</span><i></i></a><a
-      href="#work" aria-label="Projects"><span>02</span><i></i></a><a href="#experience"
+      href="#work" aria-label="Projects"><span>02</span><i></i></a><a href="#arcade" aria-label="The arcade"><span>★</span><i></i></a><a href="#experience"
       aria-label="The journey"><span>03</span><i></i></a><a href="#stack"
       aria-label="The craft"><span>04</span><i></i></a><a href="#contact"
       aria-label="Next chapter"><span>05</span><i></i></a></nav>
@@ -79,7 +79,7 @@
       <a class="wordmark" href="#home" aria-label="Bhargav Sai, home"><span class="brand-symbol"
           aria-hidden="true">B<span>∕</span></span><span>BHARGAV<span class="accent">.DEV</span></span></a>
       <nav class="desktop-nav" aria-label="Main navigation"><a class="active" href="#home">Home</a><a
-          href="#about">About</a><a href="#work">Projects</a><a href="#experience">Experience</a><a
+          href="#about">About</a><a href="#work">Projects</a><a href="#arcade">Arcade</a><a href="#experience">Experience</a><a
           href="#stack">Skills</a></nav>
       <div class="header-right"><a class="header-contact" href="#contact">Let’s connect <svg>
             <use href="#i-arrow" />
@@ -117,7 +117,7 @@
                 </svg></a><a class="button button-outline magnetic" href="#contact"><svg aria-hidden="true">
                   <use href="#i-mail" />
                 </svg> Let’s talk</a></div>
-            <div class="hero-disciplines hero-enter"><a href="#work"><svg aria-hidden="true">
+            <div class="hero-disciplines hero-enter"><a href="#arcade"><svg aria-hidden="true">
                   <use href="#i-game" />
                 </svg><span><strong>2D games</strong><small>MADE TO PLAY</small></span></a><a href="#stack"><svg
                   aria-hidden="true">
@@ -330,6 +330,95 @@
       </div>
     </section>
 
+    <section id="arcade" class="section wrap arcade-section">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label"><span>BONUS /</span> THE ARCADE</p>
+          <h2>Don’t just scroll.<br><span class="accent">Press start.</span></h2>
+        </div>
+        <p class="heading-aside">Five tiny games, built from scratch with canvas and JavaScript.<br>Play with keyboard,
+          mouse, or touch. Your high scores stay on this device.</p>
+      </div>
+      <div class="arcade-grid">
+        <button class="arcade-card reveal" data-arcade="snake" aria-haspopup="dialog">
+          <span class="arcade-card-top"><span>01 / CLASSIC</span><span>BEST <strong
+                data-arcade-best="snake">0</strong></span></span>
+          <svg class="arcade-art" viewBox="0 0 160 100" aria-hidden="true">
+            <path d="M24 74h48V42h44v18" fill="none" stroke="#65f5ce" stroke-width="11" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <circle cx="116" cy="60" r="7" fill="#65f5ce" />
+            <circle cx="138" cy="30" r="6" fill="#ff7aa8" />
+          </svg>
+          <span class="arcade-card-title">Neon Snake</span>
+          <span class="arcade-card-copy">Eat, grow, and never bite your own tail.</span>
+          <span class="arcade-card-play">Play now <span aria-hidden="true">▶</span></span>
+        </button>
+        <button class="arcade-card reveal" data-arcade="breakout" aria-haspopup="dialog">
+          <span class="arcade-card-top"><span>02 / ACTION</span><span>BEST <strong
+                data-arcade-best="breakout">0</strong></span></span>
+          <svg class="arcade-art" viewBox="0 0 160 100" aria-hidden="true">
+            <g fill="#b7a0ff"><rect x="18" y="14" width="28" height="9" rx="2" /><rect x="50" y="14" width="28"
+                height="9" rx="2" /><rect x="82" y="14" width="28" height="9" rx="2" /><rect x="114" y="14"
+                width="28" height="9" rx="2" /></g>
+            <g fill="#65f5ce"><rect x="18" y="27" width="28" height="9" rx="2" /><rect x="82" y="27" width="28"
+                height="9" rx="2" /><rect x="114" y="27" width="28" height="9" rx="2" /></g>
+            <circle cx="70" cy="58" r="5" fill="#fff" />
+            <rect x="52" y="84" width="46" height="7" rx="3.5" fill="#b7a0ff" />
+          </svg>
+          <span class="arcade-card-title">Brick Breaker</span>
+          <span class="arcade-card-copy">Smash five levels of bricks and catch the power-ups.</span>
+          <span class="arcade-card-play">Play now <span aria-hidden="true">▶</span></span>
+        </button>
+        <button class="arcade-card reveal" data-arcade="hopper" aria-haspopup="dialog">
+          <span class="arcade-card-top"><span>03 / REFLEX</span><span>BEST <strong
+                data-arcade-best="hopper">0</strong></span></span>
+          <svg class="arcade-art" viewBox="0 0 160 100" aria-hidden="true">
+            <g fill="#1d5c4b"><rect x="92" y="0" width="26" height="30" /><rect x="92" y="66" width="26"
+                height="34" /></g>
+            <g fill="#65f5ce"><rect x="88" y="26" width="34" height="8" rx="2" /><rect x="88" y="62" width="34"
+                height="8" rx="2" /></g>
+            <circle cx="52" cy="50" r="10" fill="#ffc783" />
+            <circle cx="56" cy="47" r="3" fill="#fff" />
+            <path d="M61 50l7 2-7 3z" fill="#ff7aa8" />
+          </svg>
+          <span class="arcade-card-title">Sky Hopper</span>
+          <span class="arcade-card-copy">One button, endless pipes. How far can you fly?</span>
+          <span class="arcade-card-play">Play now <span aria-hidden="true">▶</span></span>
+        </button>
+        <button class="arcade-card reveal" data-arcade="blaster" aria-haspopup="dialog">
+          <span class="arcade-card-top"><span>04 / SHOOTER</span><span>BEST <strong
+                data-arcade-best="blaster">0</strong></span></span>
+          <svg class="arcade-art" viewBox="0 0 160 100" aria-hidden="true">
+            <path d="M44 10l10 10-10 10-10-10z" fill="#ff7aa8" />
+            <path d="M104 18l12 12-12 12-12-12z" fill="#ff7aa8" />
+            <path d="M136 30l8 -6 0 14-8 10-8-10 0-14z" fill="#b7a0ff" />
+            <g fill="#65f5ce"><rect x="78" y="40" width="3" height="10" /><rect x="78" y="56" width="3"
+                height="10" /><path d="M80 70l12 22-12-6-12 6z" /></g>
+          </svg>
+          <span class="arcade-card-title">Astro Blaster</span>
+          <span class="arcade-card-copy">Auto-fire on. Dodge, collect, and survive the swarm.</span>
+          <span class="arcade-card-play">Play now <span aria-hidden="true">▶</span></span>
+        </button>
+        <button class="arcade-card reveal" data-arcade="merge" aria-haspopup="dialog">
+          <span class="arcade-card-top"><span>05 / PUZZLE</span><span>BEST <strong
+                data-arcade-best="merge">0</strong></span></span>
+          <svg class="arcade-art" viewBox="0 0 160 100" aria-hidden="true">
+            <rect x="46" y="8" width="40" height="40" rx="6" fill="#3a9478" />
+            <rect x="90" y="8" width="40" height="40" rx="6" fill="#b7a0ff" />
+            <rect x="46" y="52" width="40" height="40" rx="6" fill="#17332c" />
+            <rect x="90" y="52" width="40" height="40" rx="6" fill="#ff7aa8" />
+            <g font-family="Barlow, sans-serif" font-weight="800" text-anchor="middle" fill="#05130f">
+              <text x="66" y="34" font-size="17">16</text><text x="110" y="34" font-size="15">128</text>
+              <text x="110" y="78" font-size="12">2048</text>
+            </g>
+          </svg>
+          <span class="arcade-card-title">2048</span>
+          <span class="arcade-card-copy">Slide and merge your way to the 2048 tile.</span>
+          <span class="arcade-card-play">Play now <span aria-hidden="true">▶</span></span>
+        </button>
+      </div>
+    </section>
+
     <section id="experience" class="section wrap experience-section">
       <div class="section-heading reveal">
         <div>
@@ -474,7 +563,7 @@
           data-close-menu aria-label="Close navigation">×</button></div>
       <div class="menu-body">
         <nav aria-label="Expanded navigation"><a href="#home"><span>00</span>HOME <i>↗</i></a><a
-            href="#about"><span>01</span>ABOUT <i>↗</i></a><a href="#work"><span>02</span>PROJECTS <i>↗</i></a><a
+            href="#about"><span>01</span>ABOUT <i>↗</i></a><a href="#work"><span>02</span>PROJECTS <i>↗</i></a><a href="#arcade"><span>★</span>ARCADE <i>↗</i></a><a
             href="#experience"><span>03</span>EXPERIENCE <i>↗</i></a><a href="#stack"><span>04</span>SKILLS
             <i>↗</i></a><a href="#contact"><span>05</span>CONTACT <i>↗</i></a></nav>
         <div class="menu-art" aria-hidden="true">
@@ -528,6 +617,29 @@
             <use href="#i-game" />
           </svg></button></div>
     </div>
+  </dialog>
+  <dialog id="arcade-dialog" class="arcade-dialog" aria-labelledby="arcade-title">
+    <div class="game-heading">
+      <p class="section-label" id="arcade-label">THE ARCADE / 01</p><button class="dialog-close" data-close-arcade
+        aria-label="Close arcade">×</button>
+    </div>
+    <div class="arcade-tabs" role="group" aria-label="Choose a game"><button data-arcade-tab="snake"
+        aria-pressed="true">Snake</button><button data-arcade-tab="breakout" aria-pressed="false">Bricks</button><button
+        data-arcade-tab="hopper" aria-pressed="false">Hopper</button><button data-arcade-tab="blaster"
+        aria-pressed="false">Blaster</button><button data-arcade-tab="merge" aria-pressed="false">2048</button></div>
+    <div class="arcade-hud">
+      <h2 id="arcade-title">Neon Snake</h2>
+      <div class="game-score"><span>SCORE <strong id="arcade-score">0</strong></span><span>BEST <strong
+            id="arcade-best">0</strong></span></div>
+    </div>
+    <canvas id="arcade-canvas" class="arcade-canvas" width="360" height="480" tabindex="0" role="img"
+      aria-label="Game screen" aria-describedby="arcade-controls"></canvas>
+    <div class="arcade-footer">
+      <p id="arcade-controls"></p>
+      <div><button class="arcade-control" id="arcade-pause" disabled>Pause</button><button class="arcade-control"
+          id="arcade-sound" aria-pressed="true">Sound on</button></div>
+    </div>
+    <p class="sr-only" id="arcade-status" role="status"></p>
   </dialog>
 </body>
 
