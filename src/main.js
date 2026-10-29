@@ -108,12 +108,13 @@ $$('main section[id]').forEach((section) => sectionObserver.observe(section));
 const menu = $('#nav-dialog');
 const game = $('#game-dialog');
 const projectDialog = $('#project-dialog');
+const arcadeDialog = $('#arcade-dialog');
 function openDialog(dialog) {
   dialog.showModal();
   document.body.classList.add('modal-open');
   if (motionEnabled) gsap.fromTo(dialog, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: .3, clearProps: 'opacity,transform' });
 }
-[menu, game, projectDialog].forEach((dialog) => {
+[menu, game, projectDialog, arcadeDialog].forEach((dialog) => {
   dialog.addEventListener('close', () => {
     if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open');
   });
@@ -293,3 +294,46 @@ $('#project-dialog-play').addEventListener('click', () => {
   resetGame();
   openDialog(game);
 });
+
+// The arcade module loads on first play so the initial page stays light.
+let arcade;
+const arcadeCanvas = $('#arcade-canvas');
+const arcadeBest = (id) => Number(storage.get(`arcade-best-${id}`)) || 0;
+$$('[data-arcade-best]').forEach(element => { element.textContent = arcadeBest(element.dataset.arcadeBest); });
+const arcadeControls = {};
+function updateArcade({ id, title, index, score, best, state, muted }) {
+  $('#arcade-label').textContent = `THE ARCADE / 0${index + 1}`;
+  $('#arcade-title').textContent = title;
+  $('#arcade-score').textContent = score;
+  $('#arcade-best').textContent = best;
+  $('#arcade-controls').textContent = arcadeControls[id];
+  $$('[data-arcade-tab]').forEach(tab => tab.setAttribute('aria-pressed', String(tab.dataset.arcadeTab === id)));
+  $('#arcade-pause').disabled = state !== 'playing' && state !== 'paused';
+  $('#arcade-pause').textContent = state === 'paused' ? 'Resume' : 'Pause';
+  $('#arcade-sound').setAttribute('aria-pressed', String(!muted));
+  $('#arcade-sound').textContent = muted ? 'Sound off' : 'Sound on';
+  $(`[data-arcade-best="${id}"]`).textContent = best;
+  if (state === 'over') $('#arcade-status').textContent = `Game over. You scored ${score}.`;
+}
+async function openArcade(id) {
+  if (!arcade) {
+    try {
+      const { createArcade, GAMES } = await import('./arcade.js');
+      GAMES.forEach(item => { arcadeControls[item.id] = item.controls.join(' · '); });
+      arcade = createArcade(arcadeCanvas, { storage, motion: () => motionEnabled, onChange: updateArcade });
+    } catch { return; }
+  }
+  arcade.select(id);
+  if (!arcadeDialog.open) openDialog(arcadeDialog);
+  arcade.open();
+  arcadeCanvas.focus({ preventScroll: true });
+}
+$$('[data-arcade]').forEach(button => button.addEventListener('click', () => openArcade(button.dataset.arcade)));
+$$('[data-arcade-tab]').forEach(tab => tab.addEventListener('click', () => {
+  arcade.select(tab.dataset.arcadeTab);
+  arcadeCanvas.focus({ preventScroll: true });
+}));
+$('#arcade-pause').addEventListener('click', () => { arcade.togglePause(); arcadeCanvas.focus({ preventScroll: true }); });
+$('#arcade-sound').addEventListener('click', () => arcade.toggleSound());
+$('[data-close-arcade]').addEventListener('click', () => arcadeDialog.close());
+arcadeDialog.addEventListener('close', () => arcade?.close());

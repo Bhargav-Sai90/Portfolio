@@ -1990,6 +1990,226 @@ dialog::backdrop {
   }
 }
 
+/* Arcade */
+.arcade-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+.arcade-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  padding: 20px;
+  border: 1px solid #345039;
+  border-radius: 10px;
+  background: linear-gradient(160deg, #15291cd9, #0b1611f0);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    transform 0.3s;
+}
+.arcade-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 15px 50px #65f5ce14;
+  transform: translateY(-4px);
+}
+.arcade-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font: 7px var(--mono);
+  letter-spacing: 0.6px;
+  color: #a0b8a4;
+}
+.arcade-card-top strong {
+  color: var(--accent);
+  margin-left: 4px;
+}
+.arcade-art {
+  width: 100%;
+  height: auto;
+  stroke: none;
+  margin: 22px 0;
+  padding: 12px;
+  border-radius: 7px;
+  background: #061110;
+  border: 1px solid #1d3329;
+  transition: transform 0.3s;
+}
+.arcade-card:hover .arcade-art {
+  transform: scale(1.03);
+}
+.arcade-card-title {
+  font-size: 22px;
+  font-weight: 500;
+}
+.arcade-card-copy {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 6px;
+  flex-grow: 1;
+}
+.arcade-card-play {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #38513c;
+  font: 8px var(--mono);
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+.arcade-dialog {
+  width: min(470px, calc(100% - 24px));
+  max-width: none;
+  padding: 22px 24px;
+}
+.arcade-dialog .game-heading {
+  margin-bottom: 14px;
+}
+.arcade-tabs {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.arcade-tabs button {
+  flex: 1 0 auto;
+  padding: 8px 10px;
+  border: 1px solid #2f4735;
+  border-radius: 6px;
+  background: transparent;
+  font: 9px var(--mono);
+  color: #b3c9b9;
+}
+.arcade-tabs button:hover,
+.arcade-tabs button[aria-pressed="true"] {
+  background: #173426;
+  border-color: #375943;
+  color: var(--accent);
+}
+.arcade-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.arcade-hud h2 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.arcade-hud .game-score {
+  gap: 18px;
+  padding: 14px 0;
+}
+.arcade-canvas {
+  display: block;
+  width: min(100%, calc((90dvh - 230px) * 0.75));
+  aspect-ratio: 3 / 4;
+  margin-inline: auto;
+  border: 1px solid #2b4738;
+  border-radius: 8px;
+  background: #061110;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+.arcade-canvas:focus-visible {
+  outline-offset: 3px;
+}
+.arcade-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+.arcade-footer p {
+  font: 8px var(--mono);
+  line-height: 1.6;
+  color: #98b49f;
+}
+.arcade-footer > div {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.arcade-control {
+  padding: 8px 11px;
+  border: 1px solid #38574a;
+  border-radius: 6px;
+  background: #0c1915;
+  font: 9px var(--mono);
+  color: #d8e8df;
+}
+.arcade-control:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.arcade-control:disabled {
+  opacity: 0.45;
+}
+.arcade-control[aria-pressed="false"] {
+  color: #98b49f;
+}
+@media (max-width: 1150px) {
+  .arcade-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .arcade-card {
+    grid-column: span 2;
+  }
+  .arcade-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+}
+@media (max-width: 700px) {
+  .arcade-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .arcade-card,
+  .arcade-card:nth-child(4) {
+    grid-column: auto;
+    padding: 15px;
+  }
+  .arcade-card:last-child {
+    grid-column: span 2;
+  }
+  .arcade-card:last-child .arcade-art {
+    height: 130px;
+  }
+  .arcade-art {
+    margin: 16px 0;
+    padding: 8px;
+  }
+  .arcade-card-title {
+    font-size: 18px;
+  }
+  .arcade-card-copy {
+    font-size: 12px;
+  }
+  .arcade-dialog {
+    padding: 16px;
+  }
+  .arcade-canvas {
+    width: min(100%, calc((90dvh - 215px) * 0.75));
+  }
+  .arcade-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .arcade-footer > div > button {
+    flex: 1;
+  }
+}
 @media (min-width: 1600px) {
   .hero-content {
     min-height: 720px;
